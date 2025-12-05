@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Contractor’s Content Helper</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <h1>Contractor’s Content Helper</h1>
+      <p>Powered by ChatGPT-4o • Instantly generate titles, topic clusters, and SEO-ready content.</p>
+    </header>
+
+    <main class="app-main">
+
+      <!-- LEFT SIDE — CARDS + FORM -->
+      <section class="cards-panel">
+        <div class="cards-stack">
+
+          <!-- CARD 1 — TITLES -->
+          <div class="tool-card card-active" data-tool="titles">
+            <h2 class="card-title">Authority Title Generator</h2>
+
+            <div class="card-body">
+              <p class="card-subtitle">Create authoritative, scroll-stopping contractor titles instantly.</p>
+              <label class="card-label">Describe the service:</label>
+              <input id="input-titles" class="card-input" placeholder="e.g. crawl space encapsulation" />
+              <button class="generate-btn" data-tool="titles">Get Content</button>
+            </div>
+          </div>
+
+          <!-- CARD 2 — TOPIC CLUSTERS -->
+          <div class="tool-card card-left" data-tool="clusters">
+            <h2 class="card-title">Topic Cluster Architect</h2>
+
+            <div class="card-body">
+              <p class="card-subtitle">Build Koray-style topic clusters around any contractor keyword.</p>
+              <label class="card-label">Keyword:</label>
+              <input id="input-clusters" class="card-input" placeholder="e.g. basement waterproofing" />
+              <button class="generate-btn" data-tool="clusters">Get Content</button>
+            </div>
+          </div>
+
+          <!-- CARD 3 — BLOG BRIEFS -->
+          <div class="tool-card card-right" data-tool="blog">
+            <h2 class="card-title">SEO Blog Brief Builder</h2>
+
+            <div class="card-body">
+              <p class="card-subtitle">Generate a high-ranking SEO blog outline built to convert.</p>
+              <label class="card-label">Topic:</label>
+              <input id="input-blog" class="card-input" placeholder="e.g. do I need a French drain?" />
+              <button class="generate-btn" data-tool="blog">Get Content</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CTA FORM -->
+        <form class="cta-form">
+          <h3>Get a Professional SEO Audit & Content Roadmap</h3>
+          <p>Enter your info for a personalized contractor SEO strategy.</p>
+
+          <div class="cta-grid">
+            <div class="cta-field">
+              <label>Name</label>
+              <input placeholder="Your name" />
+            </div>
+
+            <div class="cta-field">
+              <label>Email</label>
+              <input placeholder="you@example.com" />
+            </div>
+
+            <div class="cta-field">
+              <label>Website</label>
+              <input placeholder="yourcontractorbrand.com" />
+            </div>
+          </div>
+
+          <button type="submit" class="cta-submit">Request My SEO Roadmap</button>
+        </form>
+      </section>
+
+      <!-- RIGHT SIDE — OUTPUT -->
+      <section class="output-panel">
+        <h2 class="output-heading">Generated Content</h2>
+        <div id="output" class="output-box">
+          <p class="output-placeholder">Your generated content will appear here.</p>
+        </div>
+      </section>
+
+    </main>
+
+    <script src="script.js"></script>
+  </div>
+</body>
+
+</html>

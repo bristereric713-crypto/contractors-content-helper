@@ -1,0 +1,290 @@
+/* =======================================
+   COLORS + VARIABLES
+======================================= */
+:root {
+  --bg-main: #010309;
+  --bg-card: #050816;
+  --mint: #7cffc4;
+  --mint-soft: #3bf9a3;
+  --text-main: #eafff7;
+  --text-muted: #8aa4a9;
+
+  --radius-lg: 18px;
+  --radius-md: 10px;
+
+  --glow-strong: 0 0 22px rgba(124, 255, 196, 0.55);
+  --glow-soft: 0 0 14px rgba(124, 255, 196, 0.32);
+  --glow-panel: 0 0 18px rgba(124, 255, 196, 0.38);
+}
+
+/* =======================================
+   GLOBAL RESET
+======================================= */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, Arial, sans-serif;
+  background: var(--bg-main);
+  color: var(--text-main);
+  height: 100vh;
+}
+
+/* =======================================
+   APP WRAPPER
+======================================= */
+.app-shell {
+  padding: 30px 30px 40px;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.app-header h1 {
+  font-size: 2.1rem;
+  color: var(--mint);
+  text-shadow: 0 0 16px rgba(124, 255, 196, 0.85);
+  letter-spacing: 0.08em;
+}
+
+.app-header p {
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+/* =======================================
+   MAIN LAYOUT
+======================================= */
+.app-main {
+  display: flex;
+  gap: 26px;
+  align-items: flex-start;
+}
+
+/* LEFT PANEL */
+.cards-panel {
+  flex: 0 0 42%;
+  padding-left: 5px;
+}
+
+/* =======================================
+   CARD STACK
+======================================= */
+.cards-stack {
+  position: relative;
+  width: 360px;
+  height: 260px;
+  margin-bottom: 40px;
+}
+
+/* BASE CARD STYLE */
+.tool-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 360px;
+  padding: 18px 20px;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(124, 255, 196, 0.55);
+  box-shadow: var(--glow-soft);
+  transform: translate(-50%, -50%);
+  transition: 0.4s ease;
+  cursor: pointer;
+}
+
+/* ACTIVE CARD */
+.card-active {
+  z-index: 3;
+  transform: translate(-50%, -50%) scale(1);
+  box-shadow: var(--glow-strong);
+}
+
+/* LEFT (BACK) CARD */
+.card-left {
+  z-index: 2;
+  transform: translate(-70%, -50%) rotate(-10deg) scale(0.84);
+  opacity: 0.92;
+}
+
+/* RIGHT (BACK) CARD */
+.card-right {
+  z-index: 1;
+  transform: translate(-30%, -50%) rotate(10deg) scale(0.84);
+  opacity: 0.92;
+}
+
+/* CARD TITLE */
+.card-title {
+  font-size: 1.15rem;
+  color: var(--mint);
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(124, 255, 196, 0.7);
+}
+
+/* SIDE-TITLES WHEN NOT ACTIVE */
+.card-left .card-title,
+.card-right .card-title {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  font-size: 0.95rem;
+}
+
+/* HIDE BODY ON SIDE CARDS */
+.card-left .card-body,
+.card-right .card-body {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* CARD BODY */
+.card-body {
+  margin-top: 6px;
+}
+
+/* INPUT LABEL */
+.card-label {
+  color: var(--mint-soft);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 5px;
+  display: block;
+}
+
+/* INPUT */
+.card-input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(124, 255, 196, 0.45);
+  background: #020612;
+  color: var(--text-main);
+  margin-bottom: 14px;
+  box-shadow: var(--glow-soft);
+}
+
+.card-input:focus {
+  outline: none;
+  border-color: var(--mint);
+  box-shadow: var(--glow-strong);
+}
+
+/* BUTTONS */
+.generate-btn,
+.cta-submit {
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: linear-gradient(145deg, rgba(124, 255, 196, 0.4), rgba(1, 16, 14, 1));
+  border: 1px solid rgba(124, 255, 196, 0.8);
+  color: var(--bg-main);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: var(--glow-strong);
+  transition: 0.18s ease;
+}
+
+.generate-btn:hover,
+.cta-submit:hover {
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 0 26px rgba(124, 255, 196, 1);
+}
+
+/* =======================================
+   CTA FORM
+======================================= */
+.cta-form {
+  width: 360px;
+  padding: 18px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(124, 255, 196, 0.55);
+  background: #040713;
+  box-shadow: var(--glow-soft);
+}
+
+.cta-form h3 {
+  color: var(--mint);
+  margin-bottom: 4px;
+}
+
+.cta-form p {
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.cta-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.cta-field label {
+  color: var(--mint-soft);
+  font-size: 0.82rem;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.cta-field input {
+  width: 100%;
+  padding: 9px 10px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(124, 255, 196, 0.4);
+  background: #020612;
+  color: var(--text-main);
+}
+
+/* =======================================
+   OUTPUT PANEL
+======================================= */
+.output-panel {
+  flex: 1;
+}
+
+.output-heading {
+  color: var(--mint);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 12px;
+}
+
+.output-box {
+  background: #071018;
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  min-height: 420px;
+  border: 1px solid rgba(124, 255, 196, 0.6);
+  box-shadow: var(--glow-panel);
+  overflow-y: auto;
+  color: var(--text-main);
+}
+
+/* Output typography */
+.output-box h3 {
+  color: var(--mint);
+  margin-bottom: 6px;
+}
+
+.output-box h4 {
+  color: var(--mint-soft);
+  margin-top: 10px;
+  margin-bottom: 4px;
+}
+
+.output-box ul {
+  padding-left: 18px;
+  margin-bottom: 8px;
+}
